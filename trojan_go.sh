@@ -31,8 +31,7 @@ cat > /etc/trojan-go/config.json << EOF
     "run_type": "server",
     "local_addr": "0.0.0.0",
     "local_port": 12345,
-    "remote_addr": "127.0.0.1",
-    "remote_port": 443,
+    "disable_http_check":true,
     "password": [
         "Aa505814."
     ],
