@@ -1,0 +1,20 @@
+{
+  "run_type": "server",
+  "local_addr": "0.0.0.0",
+  "local_port": 443,
+  "remote_addr": "127.0.0.1",
+  "remote_port": 80,
+  "password": [
+    "Aa505814."
+  ],
+  "ssl": {
+    "cert": "/etc/trojan-go/fullchain.pem",
+    "key": "/etc/trojan-go/privkey.pem",
+    "sni": "sv.aninja.cc"
+  },
+  "websocket": {
+    "enabled": true,
+    "path": "/ws",
+    "host": "sv.aninja.cc"
+  }
+}
