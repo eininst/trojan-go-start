@@ -23,9 +23,13 @@ proxies:
   - name: "Trojan-Go CDN"
     type: trojan
     server: sv.aninja.cc
+    sni: sv.aninja.cc
     port: 443
     password: "Aa505814."
     tls: true
+    udp: true
+    cipher: tls
+    skip-cert-verify: true
     websocket:
       enable: true
       path: "/ws"
