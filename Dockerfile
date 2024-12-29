@@ -1,8 +1,6 @@
-FROM registry.cn-chengdu.aliyuncs.com/eininst/golang:1.20.5-alpine as builder
+FROM golang:1.23.4-alpine as builder
 
-ENV GO111MODULE=on \
-    GOPROXY=https://goproxy.cn,direct
-
+ENV GO111MODULE=on
 
 WORKDIR /app
 
@@ -21,8 +19,8 @@ FROM registry.cn-chengdu.aliyuncs.com/eininst/alpine:3.18.2
 
 STOPSIGNAL SIGINT
 
-RUN apk update
-RUN apk add yasm && apk add ffmpeg
+#RUN apk update
+#RUN apk add yasm && apk add ffmpeg
 
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
