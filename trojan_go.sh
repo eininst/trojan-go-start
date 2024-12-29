@@ -39,7 +39,8 @@ cat > /etc/trojan-go/config.json << EOF
         "cert": "/etc/trojan-go/fullchain.pem",
         "key": "/etc/trojan-go/privkey.pem",
         "sni": "sv.aninja.cc",
-        "alpn": ["h2", "http/1.1"]
+        "min_version": "tls1.2",
+        "max_version": "tls1.3"
     },
     "websocket": {
         "enabled": true,
