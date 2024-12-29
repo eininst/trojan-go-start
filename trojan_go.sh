@@ -37,8 +37,8 @@ cat > /etc/trojan-go/config.json << EOF
         "Aa505814."
     ],
     "ssl": {
-        "cert": "/root/.local/share/caddy/certificates/acme-v02.api.letsencrypt.org-directory/sv.aninja.cc/sv.aninja.cc.crt",
-        "key": "/root/.local/share/caddy/certificates/acme-v02.api.letsencrypt.org-directory/sv.aninja.cc/sv.aninja.cc.key",
+        "cert": "/etc/trojan-go/fullchain.pem",
+        "key": "/etc/trojan-go/privkey.pem",
         "sni": "sv.aninja.cc",
         "alpn": ["h2", "http/1.1"]
     },
