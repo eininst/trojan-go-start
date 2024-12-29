@@ -21,7 +21,7 @@ run-nginx:
 	docker run -it --rm -v $(CURDIR)/nginx:/etc/nginx \
 	-v $(CURDIR)/nginx/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf \
 	-v /etc/trojan-go/privkey.pem:/etc/nginx/conf.d/ssl/privkey.pem \
-	-v /etc/trojan-go/fullchain.pem:/etc/nginx/conf.d/ssl/fullchain.pem
+	-v /etc/trojan-go/fullchain.pem:/etc/nginx/conf.d/ssl/fullchain.pem \
 	--net=bridge -p 80:80 nginx
 
 flush:
