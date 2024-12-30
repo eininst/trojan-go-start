@@ -1,6 +1,7 @@
 install:
 	sh $(CURDIR)/scripts/install.sh ${host}
 	source ~/.bashrc
+
 start:
 	caddy start
 	systemctl start trojan-go
