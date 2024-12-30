@@ -16,6 +16,6 @@ curl https://get.acme.sh | sh
   --reloadcmd "systemctl restart trojan-go"
 
 
-echo 'export MY_DOMAIN="$MY_DOMAIN"' >> ~/.bashrc
-echo 'export MY_EMAIL="$MY_EMAIL"' >> ~/.bashrc
+echo "export MY_DOMAIN=$MY_DOMAIN" >> ~/.bashrc
+echo "export MY_EMAIL=$MY_EMAIL" >> ~/.bashrc
 source ~/.bashrc
