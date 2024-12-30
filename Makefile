@@ -4,15 +4,22 @@ install:
 caddy:
 	caddy start
 
+caddy-log:
+	journalctl -u trojan-go -f
+
+caddy-dev:
+	caddy run
+
 trojan:
 	systemctl start trojan-go
 
 trojan-stop:
 	systemctl stop trojan-go
 
-log:
+trojan-log:
 	journalctl -u trojan-go -f
-dev:
+
+trojan-dev:
 	/etc/trojan-go/trojan-go -config ${CURDIR}/{host}.json
 
 clean:
