@@ -69,7 +69,7 @@ source ~/.bashrc
 
 sh ${current_dir}/scripts/acme.sh ${MY_DOMAIN}
 
-systemctl daemon-reload
+sudo systemctl daemon-reload
 
 
 echo "安装完成！请确保域名已解析到本服务器"
