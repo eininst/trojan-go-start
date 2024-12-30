@@ -16,7 +16,7 @@ install:
 	.$(CURDIR)/trojan_go.sh
 
 acme:
-	.$(CURDIR)/acme.sh ${host}
+	sh $(CURDIR)/acme.sh ${host}
 
 
 caddy:
