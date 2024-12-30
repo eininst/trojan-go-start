@@ -9,5 +9,5 @@
 
 {$MY_DOMAIN} {
     tls /etc/trojan-go/fullchain.pem /etc/trojan-go/privkey.pem
-    respond "Hello World SSL la" 200
+    respond "Hello World SSL {$MY_DOMAIN}" 200
 }
