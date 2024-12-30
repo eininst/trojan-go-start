@@ -67,6 +67,8 @@ sudo rm -rf /etc/trojan-go/caddy.tar.gz
 
 sh ${current_dir}/acme.sh ${MY_DOMAIN}
 
+systemctl daemon-reload
+
 # 配置 Caddyfile
 #echo "配置 Caddyfile..."
 #cat > /etc/caddy/Caddyfile << EOF
