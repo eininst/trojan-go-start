@@ -63,7 +63,7 @@ sudo touch /etc/caddy/Caddyfile
 
 sudo rm -rf /etc/trojan-go/caddy.tar.gz
 
-sh ${current_dir}/acme.sh ${MY_DOMAIN}
+#sh ${current_dir}/acme.sh ${MY_DOMAIN}
 
 systemctl daemon-reload
 
