@@ -67,40 +67,9 @@ echo "export MY_DOMAIN=$MY_DOMAIN" >> ~/.bashrc
 echo "export MY_EMAIL=$MY_EMAIL" >> ~/.bashrc
 source ~/.bashrc
 
-sh ${current_dir}/acme.sh ${MY_DOMAIN}
+sh ${current_dir}/scripts/acme.sh ${MY_DOMAIN}
 
 systemctl daemon-reload
 
-# 配置 Caddyfile
-#echo "配置 Caddyfile..."
-#cat > /etc/caddy/Caddyfile << EOF
-#:80 {
-#    respond "Hello World" 200
-#}
-#:443 {
-#    tls /etc/trojan-go/fullchain.pem /etc/trojan-go/privkey.pem
-#    respond "Hello World SSL 443" 200
-#}
-#EOF
 
-
-# 安装 acme.sh 并申请 SSL 证书
-#echo "申请 SSL 证书..."
-#curl https://get.acme.sh | sh
-#~/.acme.sh/acme.sh --register-account -m ${MY_EMAIL}
-#~/.acme.sh/acme.sh --issue --standalone -d ${MY_DOMAIN} --force
-#
-#~/.acme.sh/acme.sh --install-cert -d ${MY_DOMAIN} \
-#  --key-file /etc/trojan-go/privkey.pem \
-#  --fullchain-file /etc/trojan-go/fullchain.pem \
-#  --reloadcmd "systemctl restart trojan-go"
-
-#echo "启动 Caddy..."
-#caddy start --config /etc/caddy/Caddyfile
-
-# 启动 Trojan-Go 服务
-#echo "启动 Trojan-Go 服务..."
-#systemctl daemon-reload
-#systemctl enable trojan-go
-#systemctl start trojan-go
-#echo "Trojan-Go 部署完成！请确保域名已解析到本服务器，并在配置文件中正确设置了域名和密码。"
+echo "安装完成！请确保域名已解析到本服务器"
