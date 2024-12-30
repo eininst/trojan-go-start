@@ -1,14 +1,5 @@
 #!/bin/bash
 
-MY_EMAIL="einined@gmail.com"
-MY_DOMAIN="la.aninja.cc"
-current_dir=$(pwd)
-
-
-echo 'export MY_DOMAIN="$MY_DOMAIN"' >> ~/.bashrc
-echo 'export MY_EMAIL="$MY_EMAIL"' >> ~/.bashrc
-source ~/.bashrc
-
 # 检查是否以 root 身份运行
 if [ "$EUID" -ne 0 ]; then
   echo "请以 root 权限运行脚本！"
@@ -18,7 +9,7 @@ fi
 # 更新系统并安装必要工具
 echo "更新系统并安装必要工具..."
 #dnf update -y
-yum install wget curl unzip tar socat yum-utils -y
+yum install wget curl unzip tar socat yum-utils make -y
 
 # 创建 Trojan-Go 工作目录
 echo "创建 Trojan-Go 工作目录..."
