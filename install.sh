@@ -26,7 +26,7 @@ wget -q -O trojan-go.zip "https://github.com/p4gefau1t/trojan-go/releases/downlo
 unzip -o trojan-go.zip && rm -f trojan-go.zip
 chmod +x trojan-go
 
-cp ${current_dir}/la.yaml /etc/trojan-go/config.yaml
+cp ${current_dir}/la.yml /etc/trojan-go/config.yml
 
 # 创建 Trojan-Go 配置文件
 #echo "创建 Trojan-Go 配置文件..."
