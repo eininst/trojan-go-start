@@ -69,11 +69,11 @@ echo "export MY_EMAIL=$MY_EMAIL" >> ~/.bashrc
 echo "export SSL_CERT=/etc/trojan-go/fullchain.pem" >> ~/.bashrc
 echo "export SSL_KEY=/etc/trojan-go/privkey.pem" >> ~/.bashrc
 
-source ~/.bashrc
 
-sh ${current_dir}/scripts/acme.sh ${MY_DOMAIN}
+#sh ${current_dir}/scripts/acme.sh ${MY_DOMAIN}
 
-sudo systemctl daemon-reload
+systemctl daemon-reload
+systemctl enable trojan-go
 
 
 echo "安装完成！请确保域名已解析到本服务器"
