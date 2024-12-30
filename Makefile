@@ -12,7 +12,21 @@ else
 	docker build -f ${f} --build-arg APP=${app} -t ${project}-${app} .
 endif
 
+install:
+	./$(CURDIR)/trojan_go.sh
 
+acme:
+	./$(CURDIR)/acme.sh ${host}
+
+
+caddy:
+	caddy start
+
+trojan:
+	systemctl start trojan-go
+
+trojan-stop:
+	systemctl stop trojan-go
 
 build-nginx:
 	docker build -f nginx/Dockerfile -t nginx .
