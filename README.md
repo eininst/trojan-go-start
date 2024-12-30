@@ -90,6 +90,11 @@ websocket选项
 
 ### Server
  raksmart
+
+### Client
+https://help.mints7.cc/mac-shi-yong-jiao-cheng/mac-clashx-pro-shi-yong-jiao-cheng
+
+
 ## License
 
 *MIT*
