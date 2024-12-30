@@ -36,7 +36,7 @@ make install host=yourdomain.com
 `or`
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/eininst/trojan-go-start/main/install.sh | sh -s -- yourhost youremail
+curl -sSL https://raw.githubusercontent.com/eininst/trojan-go-start/main/install.sh | sh -s -- host email
 ```
 
 ```bash
