@@ -36,7 +36,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/etc/trojan-go/trojan-go -config /${current_dir}/${MY_DOMAIN}.json
+ExecStart=/etc/trojan-go/trojan-go -config ${current_dir}/${MY_DOMAIN}.json
 Restart=on-failure
 
 [Install]
