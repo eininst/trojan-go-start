@@ -8,7 +8,7 @@ password:
 ssl:
   cert: /etc/trojan-go/fullchain.pem
   key: /etc/trojan-go/privkey.pem
-  sni: la.aninja.cc
+  sni: ${MY_DOMAIN}
   fallback_port: 443
   fallback_addr: 127.0.0.1
 
