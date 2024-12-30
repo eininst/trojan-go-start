@@ -92,7 +92,7 @@ websocket选项
  raksmart
 
 ### Client
-https://help.mints7.cc/mac-shi-yong-jiao-cheng/mac-clashx-pro-shi-yong-jiao-cheng
+https://help.mints7.cc
 
 
 ## License
