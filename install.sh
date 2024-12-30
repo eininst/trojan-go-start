@@ -1,6 +1,8 @@
 #!/bin/bash
 
 MY_DOMAIN="$1"
+MY_EMAIL="$2"
+
 current_dir=$(pwd)
 
 # 检查是否以 root 身份运行
@@ -67,11 +69,20 @@ sudo rm -rf /etc/trojan-go/caddy.tar.gz
 echo "export MY_DOMAIN=$MY_DOMAIN" >> ~/.bashrc
 echo "export MY_EMAIL=$MY_EMAIL" >> ~/.bashrc
 
+
+echo "申请 SSL 证书..."
+curl https://get.acme.sh | sh
+~/.acme.sh/acme.sh --register-account -m ${MY_EMAIL}
+~/.acme.sh/acme.sh --issue --standalone -d ${MY_DOMAIN} --force
+
+~/.acme.sh/acme.sh --install-cert -d ${MY_DOMAIN} \
+  --key-file /etc/trojan-go/privkey.pem \
+  --fullchain-file /etc/trojan-go/fullchain.pem \
+  --reloadcmd "systemctl restart trojan-go"
+
 echo "export SSL_CERT=/etc/trojan-go/fullchain.pem" >> ~/.bashrc
 echo "export SSL_KEY=/etc/trojan-go/privkey.pem" >> ~/.bashrc
 
-
-sh ${current_dir}/scripts/acme.sh ${MY_DOMAIN}
 
 systemctl daemon-reload
 systemctl enable trojan-go

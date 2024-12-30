@@ -1,5 +1,7 @@
+email = einined@gmail.com
+
 install:
-	sh $(CURDIR)/scripts/install.sh ${host}
+	sh $(CURDIR)/install.sh ${host} $(email)
 	source ~/.bashrc
 
 start:
