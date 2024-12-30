@@ -8,9 +8,9 @@
     "Aa505814."
   ],
   "ssl": {
-    "cert": "${SSL_CERT}",
-    "key": "${SSL_KEY}",
-    "sni": "${MY_DOMAIN}",
+    "cert": "$PROGRAM_DIR$/fullchain.pem",
+    "key": "$PROGRAM_DIR$/privkey.pem",
+    "sni": "",
     "fallback_port": 443,
     "fallback_addr": "127.0.0.1"
   },
