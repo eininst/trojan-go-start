@@ -1,16 +1,11 @@
 install:
 	sh $(CURDIR)/scripts/install.sh ${host}
 
-caddy:
+start:
 	caddy start
+	systemctl start trojan-go
 
-caddy-log:
-	journalctl -u trojan-go -f
-
-caddy-dev:
-	caddy run
-
-trojan:
+trojan-start:
 	systemctl start trojan-go
 
 trojan-stop:
@@ -22,7 +17,10 @@ trojan-log:
 trojan-dev:
 	/etc/trojan-go/trojan-go -config ${CURDIR}/configs/$(MY_DOMAIN).json
 
+caddy-log:
+	journalctl -u caddy -f
+
 clean:
 	yes | docker system prune
 
-.PHONY: install caddy trojan trojan-stop clean
+.PHONY: install start trojan-start trojan-stop trojan-log trojan-dev clean
