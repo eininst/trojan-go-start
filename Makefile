@@ -13,10 +13,10 @@ else
 endif
 
 install:
-	./$(CURDIR)/trojan_go.sh
+	.$(CURDIR)/trojan_go.sh
 
 acme:
-	./$(CURDIR)/acme.sh ${host}
+	.$(CURDIR)/acme.sh ${host}
 
 
 caddy:
