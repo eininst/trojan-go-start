@@ -1,5 +1,6 @@
 #!/bin/bash
 
+MY_DOMAIN="$1"
 current_dir=$(pwd)
 
 # 检查是否以 root 身份运行
@@ -26,34 +27,7 @@ wget -q -O trojan-go.zip "https://github.com/p4gefau1t/trojan-go/releases/downlo
 unzip -o trojan-go.zip && rm -f trojan-go.zip
 chmod +x trojan-go
 
-cp ${current_dir}/la.yml /etc/trojan-go/config.yml
-
-# 创建 Trojan-Go 配置文件
-#echo "创建 Trojan-Go 配置文件..."
-#cat > /etc/trojan-go/config.json << EOF
-#{
-#    "run_type": "server",
-#    "local_addr": "0.0.0.0",
-#    "local_port": $MY_PORT,
-#    "remote_addr": "127.0.0.1",
-#    "remote_port": 80,
-#    "password": [
-#        "$MY_PASSWORD"
-#    ],
-#    "ssl": {
-#        "cert": "/etc/trojan-go/fullchain.pem",
-#        "key": "/etc/trojan-go/privkey.pem",
-#        "sni": "$MY_DOMAIN",
-#        "fallback_addr":"127.0.0.1",
-#        "fallback_port": 80
-#    },
-#    "websocket": {
-#        "enabled": true,
-#        "path": "/ws",
-#        "host": "$MY_DOMAIN"
-#    }
-#}
-#EOF
+cp ${current_dir}/${MY_DOMAIN}.json /etc/trojan-go/config.json
 
 # 配置 Trojan-Go 为系统服务
 echo "配置 Trojan-Go 为系统服务..."
