@@ -1,5 +1,7 @@
 #!/bin/bash
 
+current_dir=$(pwd)
+
 # 检查是否以 root 身份运行
 if [ "$EUID" -ne 0 ]; then
   echo "请以 root 权限运行脚本！"
