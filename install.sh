@@ -63,6 +63,10 @@ sudo touch /etc/caddy/Caddyfile
 
 sudo rm -rf /etc/trojan-go/caddy.tar.gz
 
+echo "export MY_DOMAIN=$MY_DOMAIN" >> ~/.bashrc
+echo "export MY_EMAIL=$MY_EMAIL" >> ~/.bashrc
+source ~/.bashrc
+
 sh ${current_dir}/acme.sh ${MY_DOMAIN}
 
 systemctl daemon-reload
