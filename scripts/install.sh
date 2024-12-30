@@ -37,6 +37,7 @@ After=network.target
 [Service]
 Type=simple
 ExecStart=/etc/trojan-go/trojan-go -config ${current_dir}/configs/${MY_DOMAIN}.json
+WorkingDirectory=/etc/trojan-go/
 Restart=on-failure
 
 [Install]
@@ -70,7 +71,7 @@ echo "export SSL_CERT=/etc/trojan-go/fullchain.pem" >> ~/.bashrc
 echo "export SSL_KEY=/etc/trojan-go/privkey.pem" >> ~/.bashrc
 
 
-sh ${current_dir}/scripts/acme.sh ${MY_DOMAIN}
+#sh ${current_dir}/scripts/acme.sh ${MY_DOMAIN}
 
 systemctl daemon-reload
 systemctl enable trojan-go
