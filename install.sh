@@ -72,34 +72,20 @@ systemctl enable trojan-go
 echo "export MY_DOMAIN=$MY_DOMAIN" >> ~/.bashrc
 echo "export MY_EMAIL=$MY_EMAIL" >> ~/.bashrc
 
+echo "申请 SSL 证书..."
+curl https://get.acme.sh | sh
+~/.acme.sh/acme.sh --register-account -m ${MY_EMAIL}
+~/.acme.sh/acme.sh --issue --standalone -d ${MY_DOMAIN} --force
 
-#echo "申请 SSL 证书..."
-#curl https://get.acme.sh | sh
-#~/.acme.sh/acme.sh --register-account -m ${MY_EMAIL}
-#~/.acme.sh/acme.sh --issue --standalone -d ${MY_DOMAIN} --force
-#
-#~/.acme.sh/acme.sh --install-cert -d ${MY_DOMAIN} \
-#  --key-file /etc/trojan-go/privkey.pem \
-#  --fullchain-file /etc/trojan-go/fullchain.pem \
-#  --reloadcmd "systemctl restart trojan-go"
+~/.acme.sh/acme.sh --install-cert -d ${MY_DOMAIN} \
+  --key-file /etc/trojan-go/privkey.pem \
+  --fullchain-file /etc/trojan-go/fullchain.pem \
+  --reloadcmd "systemctl restart trojan-go"
 
 crontab -l
 
 echo "export SSL_CERT=/etc/trojan-go/fullchain.pem" >> ~/.bashrc
 echo "export SSL_KEY=/etc/trojan-go/privkey.pem" >> ~/.bashrc
-
-
-file="Caddyfile"
-
-# 检查文件是否存在
-if [ ! -f "$file" ]; then
-  # 文件不存在，创建并写入内容
-  wget -a -O Caddyfile  https://raw.githubusercontent.com/eininst/trojan-go-start/main/Caddyfile
-else
-  # 文件已存在
-  echo "文件已存在，不做任何操作。"
-fi
-
 
 
 echo "安装完成！请确保域名已解析到本服务器"
