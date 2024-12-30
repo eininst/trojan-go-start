@@ -66,6 +66,9 @@ sudo touch /etc/caddy/Caddyfile
 
 sudo rm -rf /etc/trojan-go/caddy.tar.gz
 
+systemctl daemon-reload
+systemctl enable trojan-go
+
 echo "export MY_DOMAIN=$MY_DOMAIN" >> ~/.bashrc
 echo "export MY_EMAIL=$MY_EMAIL" >> ~/.bashrc
 
@@ -80,12 +83,10 @@ curl https://get.acme.sh | sh
   --fullchain-file /etc/trojan-go/fullchain.pem \
   --reloadcmd "systemctl restart trojan-go"
 
+crontab -l
+
 echo "export SSL_CERT=/etc/trojan-go/fullchain.pem" >> ~/.bashrc
 echo "export SSL_KEY=/etc/trojan-go/privkey.pem" >> ~/.bashrc
-
-
-systemctl daemon-reload
-systemctl enable trojan-go
 
 
 echo "安装完成！请确保域名已解析到本服务器"
