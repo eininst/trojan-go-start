@@ -19,6 +19,8 @@ make install host=yourdomain.com
 
 ```bash
 curl -sSL https://raw.githubusercontent.com/eininst/trojan-go-start/main/install.sh | sh -s -- yourhost youremail
+
+source ~/.bashrc
 ```
 
 ## config
