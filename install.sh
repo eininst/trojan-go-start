@@ -27,8 +27,6 @@ wget -q -O trojan-go.zip "https://github.com/p4gefau1t/trojan-go/releases/downlo
 unzip -o trojan-go.zip && rm -f trojan-go.zip
 chmod +x trojan-go
 
-cp ${current_dir}/${MY_DOMAIN}.json /etc/trojan-go/config.json
-
 # 配置 Trojan-Go 为系统服务
 echo "配置 Trojan-Go 为系统服务..."
 cat > /etc/systemd/system/trojan-go.service << EOF
@@ -38,7 +36,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/etc/trojan-go/trojan-go
+ExecStart=/etc/trojan-go/trojan-go -config /${current_dir}/${MY_DOMAIN}.json
 Restart=on-failure
 
 [Install]
