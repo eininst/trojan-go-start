@@ -94,7 +94,7 @@ file="${current_dir}Caddyfile"
 # 检查文件是否存在
 if [ ! -f "$file" ]; then
   # 文件不存在，创建并写入内容
-  wget -q -O -P ${current_dir} https://raw.githubusercontent.com/eininst/trojan-go-start/main/Caddyfile
+  wget -q -O Caddyfile  https://raw.githubusercontent.com/eininst/trojan-go-start/main/Caddyfile
 else
   # 文件已存在
   echo "文件已存在，不做任何操作。"
