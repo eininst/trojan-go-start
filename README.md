@@ -64,11 +64,20 @@ source ~/.bashrc
     "fallback_port": 443,
     "fallback_addr": "127.0.0.1"
   },
+   
+   
   "websocket": {
     "enabled": true,
     "path": "/ws"
   }
 }
+```
+
+```text
+websocket选项
+
+在正常的直接连接代理节点的情况下，开启这个选项不会改善你的链路速度（甚至有可能下降），也不会提升你的连接安全性。
+你只应该在需要利用CDN进行中转，或利用nginx,caddy等服务器根据路径分发的情况下，使用websocket
 ```
 
 ## Run
