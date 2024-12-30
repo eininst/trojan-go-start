@@ -89,7 +89,7 @@ echo "export SSL_CERT=/etc/trojan-go/fullchain.pem" >> ~/.bashrc
 echo "export SSL_KEY=/etc/trojan-go/privkey.pem" >> ~/.bashrc
 
 
-file="${current_dir}Caddyfile"
+file="Caddyfile"
 
 # 检查文件是否存在
 if [ ! -f "$file" ]; then
