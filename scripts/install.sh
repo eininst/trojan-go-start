@@ -65,6 +65,10 @@ sudo rm -rf /etc/trojan-go/caddy.tar.gz
 
 echo "export MY_DOMAIN=$MY_DOMAIN" >> ~/.bashrc
 echo "export MY_EMAIL=$MY_EMAIL" >> ~/.bashrc
+
+echo "export SSL_CERT=/etc/trojan-go/fullchain.pem" >> ~/.bashrc
+echo "export SSL_KEY=/etc/trojan-go/privkey.pem" >> ~/.bashrc
+
 source ~/.bashrc
 
 sh ${current_dir}/scripts/acme.sh ${MY_DOMAIN}

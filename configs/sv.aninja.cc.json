@@ -8,8 +8,8 @@
     "Aa505814."
   ],
   "ssl": {
-    "cert": "/etc/trojan-go/fullchain.pem",
-    "key": "/etc/trojan-go/privkey.pem",
+    "cert": "${SSL_CERT}",
+    "key": "${SSL_KEY}",
     "sni": "${MY_DOMAIN}",
     "fallback_port": 443,
     "fallback_addr": "127.0.0.1"
