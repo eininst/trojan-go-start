@@ -1,5 +1,5 @@
 install:
-	.$(CURDIR)/install.sh ${host}
+	sh $(CURDIR)/scripts/install.sh ${host}
 
 caddy:
 	caddy start
@@ -20,7 +20,7 @@ trojan-log:
 	journalctl -u trojan-go -f
 
 trojan-dev:
-	/etc/trojan-go/trojan-go -config ${CURDIR}/config/$(MY_DOMAIN).json
+	/etc/trojan-go/trojan-go -config ${CURDIR}/configs/$(MY_DOMAIN).json
 
 clean:
 	yes | docker system prune
