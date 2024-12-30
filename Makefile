@@ -27,4 +27,4 @@ caddy-log:
 clean:
 	yes | docker system prune
 
-.PHONY: install start trojan-start trojan-stop trojan-log trojan-dev clean
+.PHONY: install start stop trojan-start trojan-stop trojan-log trojan-dev clean
