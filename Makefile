@@ -20,7 +20,7 @@ trojan-log:
 	journalctl -u trojan-go -f
 
 trojan-dev:
-	/etc/trojan-go/trojan-go -config ${CURDIR}/{host}.json
+	/etc/trojan-go/trojan-go -config ${CURDIR}/$(MY_DOMAIN).json
 
 clean:
 	yes | docker system prune
