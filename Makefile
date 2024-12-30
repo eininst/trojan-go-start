@@ -5,6 +5,10 @@ start:
 	caddy start
 	systemctl start trojan-go
 
+stop:
+	caddy stop
+	systemctl stop trojan-go
+
 trojan-start:
 	systemctl start trojan-go
 
