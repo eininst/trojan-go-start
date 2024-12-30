@@ -72,6 +72,7 @@ systemctl enable trojan-go
 echo "export MY_DOMAIN=$MY_DOMAIN" >> ~/.bashrc
 echo "export MY_EMAIL=$MY_EMAIL" >> ~/.bashrc
 
+
 echo "申请 SSL 证书..."
 curl https://get.acme.sh | sh
 ~/.acme.sh/acme.sh --register-account -m ${MY_EMAIL}
