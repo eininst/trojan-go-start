@@ -63,7 +63,7 @@ sudo chmod +x /usr/local/bin/caddy
 sudo mkdir -p /etc/caddy
 sudo touch /etc/caddy/Caddyfile
 
-sudo rm -rf caddy.tar.gz
+sudo rm -rf /etc/trojan-go/caddy.tar.gz
 
 # 配置 Caddyfile
 #echo "配置 Caddyfile..."
