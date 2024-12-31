@@ -98,6 +98,9 @@ source <(curl -Ls https://raw.githubusercontent.com/eininst/trojan-go-start/main
 ## 域名购买
 - https://www.godaddy.com
 
+## WildCard 海外支付账户开通
+- https://bewildcard.com
+
 ## License
 
 *MIT*
