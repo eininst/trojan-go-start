@@ -87,13 +87,11 @@ websocket选项
 ```
 
 
-
-### Server
- raksmart
-
 ### Client
-https://help.mints7.cc
+> See [releases](/releases)
 
+[//]: # (Raksmart)
+[//]: # (https://help.mints7.cc)
 
 ## License
 
