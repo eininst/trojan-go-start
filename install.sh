@@ -162,13 +162,14 @@ echo "alias trestart='systemctl restart trojan-go'" >> ~/.bashrc
 
 echo "alias tstop='systemctl stop trojan-go'" >> ~/.bashrc
 
+echo "alias schema='printf \"trojan://${PASSWORD}@${MY_DOMAIN}:${PORT}#${MY_DOMAIN}\n\"'" >> ~/.bashrc
+
 echo "export MY_DOMAIN=$MY_DOMAIN" >> ~/.bashrc
 echo "export MY_EMAIL=$MY_EMAIL" >> ~/.bashrc
 echo "export SSL_CERT=${current_dir}/fullchain.pem" >> ~/.bashrc
 echo "export SSL_KEY=${current_dir}/privkey.pem" >> ~/.bashrc
 
 echo "export SSL_KEY=${current_dir}/privkey.pem" >> ~/.bashrc
-
 
 bash -i -c "source ~/.bashrc"
 
