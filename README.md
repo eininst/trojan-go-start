@@ -10,18 +10,19 @@ bash <(curl -Ls https://raw.githubusercontent.com/eininst/trojan-go-start/main/i
 ```
 
 ## Cmd
-| 命令        | 说明              |
-|-------------|-------------------|
-| start       | 启动 caddy 和 trojan-go |
-| stop        | 停止 caddy 和 trojan-go |
-| tlog        | 查看 trojan-go 运行日志 |
-| clog        | 查看 caddy 运行日志 |
-| tstart      | 运行 trojan-go    |
-| tstop       | 停止 trojan-go    |
-| trestart    | 重启 trojan-go    |
-| caddy start | 运行 caddy        |
-| caddy stop  | 停止 caddy        |
-| caddy reload| 重启 caddy        |
+| 命令       | 说明                   |
+|------------|----------------------|
+| start      | 启动 caddy 和 trojan-go |
+| stop       | 停止 caddy 和 trojan-go |
+| tlog       | 查看 trojan-go 运行日志    |
+| clog       | 查看 caddy 运行日志        |
+| tstart     | 运行 trojan-go         |
+| tstop      | 停止 trojan-go         |
+| trestart   | 重启 trojan-go         |
+| caddy start | 运行 caddy             |
+| caddy stop | 停止 caddy             |
+| caddy reload| 重启 caddy             |
+| schema| 获取URI连接地址            |
 
 
 ### 特性

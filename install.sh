@@ -188,6 +188,8 @@ printf "\033[32m%-5s \033[0m|  %-10s\n" "tstart" "运行trojan-go" &&
 printf "\033[32m%-5s \033[0m|  %-10s\n" "tstop" "停止trojan-go" &&
 printf "\033[32m%-5s \033[0m|  %-10s\n" "trestart" "重启trojan-go"
 
+printf "\033[32m%-5s \033[0m|  %-10s\n" "schema" "获取URI连接地址"
+
 
 printf "The built-in command needs to take effect immediately in this session. Please execute: \033[32msource ~/.bashrc\033[0m\n"
 
