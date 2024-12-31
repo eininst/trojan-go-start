@@ -131,7 +131,7 @@ cat > ${current_dir}/Caddyfile << EOF
 
 $MY_DOMAIN {
     tls ${current_dir}/fullchain.pem ${current_dir}/privkey.pem
-    respond "Hello World SSL {$MY_DOMAIN}" 200
+    respond "Hello World SSL $MY_DOMAIN" 200
 }
 EOF
 
