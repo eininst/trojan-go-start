@@ -118,7 +118,7 @@ sudo touch /etc/caddy/Caddyfile
 
 sudo rm -rf /etc/trojan-go/caddy.tar.gz
 
-echo "创建 Trojan-Go 配置文件..."
+echo "创建 Caddyfile 配置文件..."
 cat > ${current_dir}/Caddyfile << EOF
 :80 {
     respond "Hello World" 200
