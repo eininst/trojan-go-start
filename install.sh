@@ -1,12 +1,10 @@
 #!/bin/bash
 
-
 # 检查是否以 root 身份运行
 if [ "$EUID" -ne 0 ]; then
   echo "请以 root 权限运行脚本！"
   exit
 fi
-
 
 current_dir=$(pwd)
 
@@ -20,7 +18,7 @@ while true; do
     fi
 done
 
-# 请输入域名
+# 请输入邮箱
 while true; do
     read -p "请输入邮箱：" MY_EMAIL
     if [ -z "$MY_EMAIL" ]; then
@@ -31,14 +29,12 @@ while true; do
 done
 
 
-
 read -p "请输入密码（默认值为 admin123）：" PASSWORD
 PASSWORD=${PASSWORD:-admin123}
 
 
 read -p "请输入端口（默认值为 12345）：" PORT
 PORT=${PORT:-12345}
-
 
 
 # 更新系统并安装必要工具
@@ -123,29 +119,25 @@ sudo touch /etc/caddy/Caddyfile
 sudo rm -rf /etc/trojan-go/caddy.tar.gz
 
 echo "创建 Trojan-Go 配置文件..."
-cat > ${current_dir}/Caddyfile.json << EOF
+cat > ${current_dir}/Caddyfile << EOF
 :80 {
     respond "Hello World" 200
 }
 
 :443 {
-    tls {$SSL_CERT} {$SSL_KEY}
+    tls ${current_dir}/fullchain.pem ${current_dir}/privkey.pem
     respond "Hello World SSL 443" 200
 }
 
-{$MY_DOMAIN} {
-    tls {$SSL_CERT} {$SSL_KEY}
+$MY_DOMAIN {
+    tls ${current_dir}/fullchain.pem ${current_dir}/privkey.pem
     respond "Hello World SSL {$MY_DOMAIN}" 200
 }
-
 EOF
 
 
 systemctl daemon-reload
 systemctl enable trojan-go
-
-echo "export MY_DOMAIN=$MY_DOMAIN" >> ~/.bashrc
-echo "export MY_EMAIL=$MY_EMAIL" >> ~/.bashrc
 
 
 echo "申请 SSL 证书..."
@@ -160,8 +152,30 @@ curl https://get.acme.sh | sh
 
 crontab -l
 
+
+echo "alias start=caddy start && systemctl start trojan-go" >> ~/.bashrc
+
+echo "alias stop=systemctl stop trojan-go && caddy stop" >> ~/.bashrc
+
+echo "alias tlog=journalctl -u trojan-go -f" >> ~/.bashrc
+
+echo "alias clog=journalctl -u caddy -f" >> ~/.bashrc
+
+echo "alias trun=${current_dir}/trojan-go" >> ~/.bashrc
+
+echo "alias tstart=systemctl start trojan-go" >> ~/.bashrc
+
+echo "alias trestart=systemctl restart trojan-go" >> ~/.bashrc
+
+echo "alias tstop=systemctl stop trojan-go" >> ~/.bashrc
+
+echo "export MY_DOMAIN=$MY_DOMAIN" >> ~/.bashrc
+echo "export MY_EMAIL=$MY_EMAIL" >> ~/.bashrc
 echo "export SSL_CERT=${current_dir}/fullchain.pem" >> ~/.bashrc
 echo "export SSL_KEY=${current_dir}/privkey.pem" >> ~/.bashrc
+
+
+bash -i -c "source ~/.bashrc"
 
 
 echo "安装完成！请确保域名已解析到本服务器"
