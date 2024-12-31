@@ -154,8 +154,8 @@ curl https://get.acme.sh | sh
 ~/.acme.sh/acme.sh --issue --standalone -d ${MY_DOMAIN} --force
 
 ~/.acme.sh/acme.sh --install-cert -d ${MY_DOMAIN} \
-  --key-file /etc/trojan-go/privkey.pem \
-  --fullchain-file /etc/trojan-go/fullchain.pem \
+  --key-file ${current_dir}/privkey.pem \
+  --fullchain-file ${current_dir}/fullchain.pem \
   --reloadcmd "systemctl restart trojan-go"
 
 crontab -l
