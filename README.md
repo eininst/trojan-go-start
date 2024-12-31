@@ -88,7 +88,7 @@ websocket选项
 
 
 ## Client
-> See [Releases](/releases)
+> See [Releases](https://github.com/eininst/trojan-go-start/releases)
 
 [//]: # (Raksmart)
 [//]: # (https://help.mints7.cc)
