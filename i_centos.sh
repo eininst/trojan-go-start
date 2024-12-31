@@ -161,7 +161,7 @@ echo "开启 BBR 拥塞控制算法..."
 
 # 检查内核版本
 kernel_version=$(uname -r | cut -d'.' -f1-2)
-if [[ $(echo "$kernel_version >= 4.9" | bc) -ne 1 ]]; then
+if [[ $(echo "$kernel_version >= 4.18" | bc) -ne 1 ]]; then
   echo "当前内核版本为 $kernel_version，不支持 BBR（需要内核版本 >= 4.9）。请先升级内核！"
 else
 
