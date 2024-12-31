@@ -84,7 +84,8 @@ cat > ${current_dir}/config.json << EOF
   },
   "mux": {
     "enabled": true,
-    "concurrency": 8
+    "concurrency": 8,
+    "idle_timeout": 60
   }
 }
 EOF
