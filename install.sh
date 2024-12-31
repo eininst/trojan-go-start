@@ -47,6 +47,8 @@ unzip -o trojan-go.zip && rm -f trojan-go.zip
 chmod +x trojan-go
 cp -f trojan-go ${current_dir}
 
+cd ${current_dir}
+
 # 配置 Trojan-Go 为系统服务
 echo "配置 Trojan-Go 为系统服务..."
 cat > /etc/systemd/system/trojan-go.service << EOF
