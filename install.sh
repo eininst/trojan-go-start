@@ -167,7 +167,7 @@ echo "export MY_EMAIL=$MY_EMAIL" >> ~/.bashrc
 echo "export SSL_CERT=${current_dir}/fullchain.pem" >> ~/.bashrc
 echo "export SSL_KEY=${current_dir}/privkey.pem" >> ~/.bashrc
 
-echo 'help=\"printf "\033[32m %-5s \033[0m|  %-10s\n" "start" "启动caddy和trojan-go" &&
+echo 'alias help=\"printf "\033[32m %-5s \033[0m|  %-10s\n" "start" "启动caddy和trojan-go" &&
              printf "\033[32m %-5s \033[0m|  %-10s\n" "stop" "停止caddy和trojan-go" &&
              printf "\033[32m %-5s \033[0m|  %-10s\n" "tlog" "查看trojan-go运行日志" &&
              printf "\033[32m %-5s \033[0m|  %-10s\n" "clog" "查看caddy运行日志" &&
