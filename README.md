@@ -16,19 +16,20 @@ source <(curl -Ls https://raw.githubusercontent.com/eininst/trojan-go-start/main
 ```
 
 ## Cmd
-| 命令       | 说明                   |
-|------------|----------------------|
-| start      | 启动 caddy 和 trojan-go |
-| stop       | 停止 caddy 和 trojan-go |
-| tlog       | 查看 trojan-go 运行日志    |
-| clog       | 查看 caddy 运行日志        |
-| tstart     | 运行 trojan-go         |
-| tstop      | 停止 trojan-go         |
-| trestart   | 重启 trojan-go         |
-| caddy start | 运行 caddy             |
-| caddy stop | 停止 caddy             |
-| caddy reload| 重启 caddy             |
-| schema| 获取URI连接地址            |
+| 命令           | 说明                   |
+|--------------|----------------------|
+| start        | 启动 caddy 和 trojan-go |
+| stop         | 停止 caddy 和 trojan-go |
+| tlog         | 查看 trojan-go 运行日志    |
+| clog         | 查看 caddy 运行日志        |
+| tstart       | 运行 trojan-go         |
+| tstop        | 停止 trojan-go         |
+| trestart     | 重启 trojan-go         |
+| caddy start  | 运行 caddy             |
+| caddy stop   | 停止 caddy             |
+| caddy reload | 重启 caddy             |
+| schema       | 获取URI连接地址            |
+| tcp          | 查看TCP拥塞控制算法            |
 
 
 ### 特性
@@ -38,6 +39,7 @@ source <(curl -Ls https://raw.githubusercontent.com/eininst/trojan-go-start/main
 - **自动获取证书**：集成 Let's Encrypt，自动获取和更新 SSL 证书。
 - **Systemd 支持**：提供 Systemd 服务管理，轻松启动、停止和重启服务。
 - **日志管理**：集成日志记录，方便排查问题。
+- **BBR加速**：自动BBR加速, 在内核支持的版本是自动配置BBR
 
 
 ### Trojan-Go 对抗 GFW 的效果
@@ -63,6 +65,22 @@ source <(curl -Ls https://raw.githubusercontent.com/eininst/trojan-go-start/main
 你只应该在需要利用CDN进行中转，或利用nginx,caddy等服务器根据路径分发的情况下，使用websocket
 
 
+## BBR加速
+
+| CentOS 版本        | 默认内核版本          | 是否支持 BBR |
+|--------------------|-----------------------|--------------|
+| CentOS 7.x         | 3.10.x               | 不支持       |
+| CentOS 8.x         | 4.18.x               | 支持         |
+| CentOS Stream 9    | 5.x（如 5.14.x）     | 支持         |
+
+| Ubuntu 版本   | 默认内核版本 | 是否支持 BBR            |
+|---------------|--------------|-------------------------|
+| Ubuntu 14.04  | 3.13.x       | 不支持                 |
+| Ubuntu 16.04  | 4.4.x        | 不支持（需升级内核）   |
+| Ubuntu 18.04  | 4.15.x       | 支持                   |
+| Ubuntu 20.04  | 5.4.x        | 支持                   |
+| Ubuntu 22.04  | 5.15.x       | 支持                   |
+| Ubuntu 23.04+ | 6.x          | 支持                   |
 
 ## Client
 > See [Releases](https://github.com/eininst/trojan-go-start/releases)

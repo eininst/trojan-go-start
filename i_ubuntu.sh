@@ -44,7 +44,7 @@ wget -q -O trojan-go.zip "https://github.com/p4gefau1t/trojan-go/releases/downlo
 # 解压文件并设置权限
 unzip -o trojan-go.zip && rm -f trojan-go.zip
 chmod +x trojan-go
-cp -f trojan-go "${current_dir}"
+\cp -f trojan-go "${current_dir}"
 
 cd "${current_dir}"
 
@@ -147,6 +147,7 @@ echo "alias tstart='systemctl start trojan-go'" >> ~/.bashrc
 echo "alias trestart='systemctl restart trojan-go'" >> ~/.bashrc
 echo "alias tstop='systemctl stop trojan-go'" >> ~/.bashrc
 echo "alias schema='printf \"trojan://${PASSWORD}@${MY_DOMAIN}:${PORT}#${MY_DOMAIN}\n\"'" >> ~/.bashrc
+echo "alias tcp='sysctl net.ipv4.tcp_congestion_control'" >> ~/.bashrc
 
 echo "export MY_DOMAIN=${MY_DOMAIN}" >> ~/.bashrc
 echo "export MY_EMAIL=${MY_EMAIL}" >> ~/.bashrc
@@ -155,6 +156,46 @@ echo "export SSL_KEY=${current_dir}/privkey.pem" >> ~/.bashrc
 
 # 使上述 alias 和环境变量生效
 source ~/.bashrc
+
+
+echo "开启 BBR 拥塞控制算法..."
+
+# 检查内核版本
+kernel_version=$(uname -r | cut -d'.' -f1-2)
+if [[ $(echo "$kernel_version >= 4.9" | bc) -ne 1 ]]; then
+  echo "当前内核版本为 $kernel_version，不支持 BBR（需要内核版本 >= 4.9）。请先升级内核！"
+else
+
+# 修改 sysctl 配置
+echo "配置 BBR 参数..."
+cat << EOF >> /etc/sysctl.conf
+net.core.default_qdisc = fq
+net.ipv4.tcp_congestion_control = bbr
+EOF
+
+# 应用配置
+sysctl -p
+
+# 验证是否成功启用
+echo "验证 BBR 是否成功启用..."
+congestion_control=$(sysctl net.ipv4.tcp_congestion_control | awk '{print $3}')
+if [[ "$congestion_control" == "bbr" ]]; then
+  echo "BBR 拥塞控制算法已成功启用！"
+else
+  echo "BBR 启用失败，请检查配置。"
+fi
+
+# 检查是否加载了 bbr 模块
+bbr_module=$(lsmod | grep bbr)
+if [[ -n "$bbr_module" ]]; then
+  echo "bbr 模块已成功加载！"
+else
+  echo "bbr 模块未加载，可能需要手动检查系统配置。"
+fi
+
+fi
+
+printf "\033[32m当前 TCP 拥塞控制算法为：$congestion_control\033[0m\n"
 
 printf "%-15s---%-30s\n" "---------------" "-------------------------------" &&
 printf "%-17s | %-30s\n" "命令" "描述" &&
@@ -170,5 +211,6 @@ printf "\033[32m%-15s\033[0m | %-30s\n" "tstart" "运行trojan-go" &&
 printf "\033[32m%-15s\033[0m | %-30s\n" "tstop" "停止trojan-go" &&
 printf "\033[32m%-15s\033[0m | %-30s\n" "trestart" "重启trojan-go" &&
 printf "\033[32m%-15s\033[0m | %-30s\n" "schema" "获取URI连接地址" &&
+printf "\033[32m%-15s\033[0m | %-30s\n" "tcp" "查看TCP拥塞控制算法" &&
 printf "\n" &&
 printf "安装完成！请确保域名已解析到本服务器\n"

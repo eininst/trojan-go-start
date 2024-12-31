@@ -147,7 +147,7 @@ echo "alias tstart='systemctl start trojan-go'" >> ~/.bashrc
 echo "alias trestart='systemctl restart trojan-go'" >> ~/.bashrc
 echo "alias tstop='systemctl stop trojan-go'" >> ~/.bashrc
 echo "alias schema='printf \"trojan://${PASSWORD}@${MY_DOMAIN}:${PORT}#${MY_DOMAIN}\n\"'" >> ~/.bashrc
-echo "alias tcp='sysctl net.ipv4.tcp_congestion_control | awk \"{print $3}\"'" >> ~/.bashrc
+echo "alias tcp='sysctl net.ipv4.tcp_congestion_control'" >> ~/.bashrc
 
 echo "export MY_DOMAIN=$MY_DOMAIN" >> ~/.bashrc
 echo "export MY_EMAIL=$MY_EMAIL" >> ~/.bashrc
@@ -157,14 +157,13 @@ echo "export SSL_KEY=${current_dir}/privkey.pem" >> ~/.bashrc
 source ~/.bashrc
 
 
-
 echo "开启 BBR 拥塞控制算法..."
 
 # 检查内核版本
 kernel_version=$(uname -r | cut -d'.' -f1-2)
 if [[ $(echo "$kernel_version >= 4.9" | bc) -ne 1 ]]; then
   echo "当前内核版本为 $kernel_version，不支持 BBR（需要内核版本 >= 4.9）。请先升级内核！"
-fi
+else
 
 # 修改 sysctl 配置
 echo "配置 BBR 参数..."
@@ -191,6 +190,8 @@ if [[ -n "$bbr_module" ]]; then
   echo "bbr 模块已成功加载！"
 else
   echo "bbr 模块未加载，可能需要手动检查系统配置。"
+fi
+
 fi
 
 
