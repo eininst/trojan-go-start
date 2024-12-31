@@ -6,7 +6,7 @@
 ## 安装
 
 ```shell
-bash <(curl -Ls https://raw.githubusercontent.com/eininst/trojan-go-start/main/install.sh)
+source <(curl -Ls https://raw.githubusercontent.com/eininst/trojan-go-start/main/install.sh)
 ```
 
 ## Cmd
