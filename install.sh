@@ -45,7 +45,7 @@ wget -q -O trojan-go.zip "https://github.com/p4gefau1t/trojan-go/releases/downlo
 # 解压文件并设置权限
 unzip -o trojan-go.zip && rm -f trojan-go.zip
 chmod +x trojan-go
-cp trojan-go ${current_dir}
+cp -f trojan-go ${current_dir}
 
 # 配置 Trojan-Go 为系统服务
 echo "配置 Trojan-Go 为系统服务..."
@@ -155,7 +155,7 @@ echo "export MY_EMAIL=$MY_EMAIL" >> ~/.bashrc
 echo "export SSL_CERT=${current_dir}/fullchain.pem" >> ~/.bashrc
 echo "export SSL_KEY=${current_dir}/privkey.pem" >> ~/.bashrc
 
-bash -i -c "source ~/.bashrc"
+source ~/.bashrc
 
 printf "%-15s---%-30s\n" "---------------" "-------------------------------" &&
 printf "%-17s | %-30s\n" "命令" "描述" &&
