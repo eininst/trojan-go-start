@@ -1,15 +1,45 @@
 #!/bin/bash
 
-MY_DOMAIN="$1"
-MY_EMAIL="$2"
-
-current_dir=$(pwd)
 
 # 检查是否以 root 身份运行
 if [ "$EUID" -ne 0 ]; then
   echo "请以 root 权限运行脚本！"
   exit
 fi
+
+
+current_dir=$(pwd)
+
+# 请输入域名
+while true; do
+    read -p "请输入域名：" MY_DOMAIN
+    if [ -z "$MY_DOMAIN" ]; then
+        echo "域名不能为空，请重新输入！"
+    else
+        break  # 如果输入有效，跳出循环
+    fi
+done
+
+# 请输入域名
+while true; do
+    read -p "请输入邮箱：" MY_EMAIL
+    if [ -z "$MY_EMAIL" ]; then
+        echo "邮箱不能为空，请重新输入！"
+    else
+        break  # 如果输入有效，跳出循环
+    fi
+done
+
+
+
+read -p "请输入密码（默认值为 admin123）：" PASSWORD
+PASSWORD=${PASSWORD:-admin123}
+
+
+read -p "请输入端口（默认值为 12345）：" PORT
+PORT=${PORT:-12345}
+
+
 
 # 更新系统并安装必要工具
 echo "更新系统并安装必要工具..."
@@ -28,6 +58,7 @@ wget -q -O trojan-go.zip "https://github.com/p4gefau1t/trojan-go/releases/downlo
 # 解压文件并设置权限
 unzip -o trojan-go.zip && rm -f trojan-go.zip
 chmod +x trojan-go
+cp trojan-go ${current_dir}
 
 # 配置 Trojan-Go 为系统服务
 echo "配置 Trojan-Go 为系统服务..."
@@ -38,12 +69,37 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/etc/trojan-go/trojan-go -config ${current_dir}/configs/${MY_DOMAIN}.json
-WorkingDirectory=/etc/trojan-go
+ExecStart=${current_dir}/trojan-go
 Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
+EOF
+
+
+echo "创建 Trojan-Go 配置文件..."
+cat > ${current_dir}/config.json << EOF
+{
+  "run_type": "server",
+  "local_addr": "0.0.0.0",
+  "local_port": ${PORT},
+  "remote_addr": "127.0.0.1",
+  "remote_port": 443,
+  "password": [
+    "${PASSWORD}"
+  ],
+  "ssl": {
+    "cert": "${current_dir}/fullchain.pem",
+    "key": "${current_dir}/privkey.pem",
+    "sni": "",
+    "fallback_port": 443,
+    "fallback_addr": "127.0.0.1"
+  },
+  "websocket": {
+    "enabled": true,
+    "path": "/ws"
+  }
+}
 EOF
 
 # 安装 Caddy
@@ -66,6 +122,25 @@ sudo touch /etc/caddy/Caddyfile
 
 sudo rm -rf /etc/trojan-go/caddy.tar.gz
 
+echo "创建 Trojan-Go 配置文件..."
+cat > ${current_dir}/Caddyfile.json << EOF
+:80 {
+    respond "Hello World" 200
+}
+
+:443 {
+    tls {$SSL_CERT} {$SSL_KEY}
+    respond "Hello World SSL 443" 200
+}
+
+{$MY_DOMAIN} {
+    tls {$SSL_CERT} {$SSL_KEY}
+    respond "Hello World SSL {$MY_DOMAIN}" 200
+}
+
+EOF
+
+
 systemctl daemon-reload
 systemctl enable trojan-go
 
@@ -85,8 +160,8 @@ curl https://get.acme.sh | sh
 
 crontab -l
 
-echo "export SSL_CERT=/etc/trojan-go/fullchain.pem" >> ~/.bashrc
-echo "export SSL_KEY=/etc/trojan-go/privkey.pem" >> ~/.bashrc
+echo "export SSL_CERT=${current_dir}/fullchain.pem" >> ~/.bashrc
+echo "export SSL_KEY=${current_dir}/privkey.pem" >> ~/.bashrc
 
 
 echo "安装完成！请确保域名已解析到本服务器"
