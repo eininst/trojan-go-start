@@ -18,7 +18,6 @@ while true; do
     fi
 done
 
-
 read -p "$(echo -e "\033[36m请输入邮箱（默认值为 example@gmail.com）：\033[0m")" MY_EMAIL
 MY_EMAIL=${MY_EMAIL:-example@gmail.com}
 
@@ -105,7 +104,6 @@ sudo mv caddy /usr/local/bin/
 # 赋予执行权限
 sudo chmod +x /usr/local/bin/caddy
 
-
 sudo mkdir -p /etc/caddy
 sudo touch /etc/caddy/Caddyfile
 
@@ -128,10 +126,8 @@ $MY_DOMAIN {
 }
 EOF
 
-
 systemctl daemon-reload
 systemctl enable trojan-go
-
 
 echo "申请 SSL 证书..."
 curl https://get.acme.sh | sh
@@ -145,23 +141,14 @@ curl https://get.acme.sh | sh
 
 crontab -l
 
-
 echo "alias start='caddy start && systemctl start trojan-go'" >> ~/.bashrc
-
 echo "alias stop='systemctl stop trojan-go && caddy stop'" >> ~/.bashrc
-
 echo "alias tlog='journalctl -u trojan-go -f'" >> ~/.bashrc
-
 echo "alias clog='journalctl -u caddy -f'" >> ~/.bashrc
-
 echo "alias trun='${current_dir}/trojan-go'" >> ~/.bashrc
-
 echo "alias tstart='systemctl start trojan-go'" >> ~/.bashrc
-
 echo "alias trestart='systemctl restart trojan-go'" >> ~/.bashrc
-
 echo "alias tstop='systemctl stop trojan-go'" >> ~/.bashrc
-
 echo "alias schema='printf \"trojan://${PASSWORD}@${MY_DOMAIN}:${PORT}#${MY_DOMAIN}\n\"'" >> ~/.bashrc
 
 echo "export MY_DOMAIN=$MY_DOMAIN" >> ~/.bashrc
@@ -169,29 +156,25 @@ echo "export MY_EMAIL=$MY_EMAIL" >> ~/.bashrc
 echo "export SSL_CERT=${current_dir}/fullchain.pem" >> ~/.bashrc
 echo "export SSL_KEY=${current_dir}/privkey.pem" >> ~/.bashrc
 
-echo "export SSL_KEY=${current_dir}/privkey.pem" >> ~/.bashrc
-
 bash -i -c "source ~/.bashrc"
 
-
-echo "安装完成！请确保域名已解析到本服务器"
-
-
-printf "\033[32m%-5s \033[0m|  %-10s\n" "start" "启动caddy和trojan-go" &&
-printf "\033[32m%-5s \033[0m|  %-10s\n" "stop" "停止caddy和trojan-go" &&
-printf "\033[32m%-5s \033[0m|  %-10s\n" "tlog" "查看trojan-go运行日志" &&
-printf "\033[32m%-5s \033[0m|  %-10s\n" "clog" "查看caddy运行日志" &&
-printf "\033[32m%-5s \033[0m|  %-10s\n" "caddy start" "运行caddy " &&
-printf "\033[32m%-5s \033[0m|  %-10s\n" "caddy stop" "停止caddy" &&
-printf "\033[32m%-5s \033[0m|  %-10s\n" "caddy reload" "重启caddy" &&
-printf "\033[32m%-5s \033[0m|  %-10s\n" "tstart" "运行trojan-go" &&
-printf "\033[32m%-5s \033[0m|  %-10s\n" "tstop" "停止trojan-go" &&
-printf "\033[32m%-5s \033[0m|  %-10s\n" "trestart" "重启trojan-go"
-
-printf "\033[32m%-5s \033[0m|  %-10s\n" "schema" "获取URI连接地址"
-
-
-printf "The built-in command needs to take effect immediately in this session. Please execute: \033[32msource ~/.bashrc\033[0m\n"
+printf "%-15s---%-30s\n" "---------------" "-------------------------------" &&
+printf "%-17s | %-30s\n" "命令" "描述" &&
+printf "%-15s---%-30s\n" "---------------" "-------------------------------" &&
+printf "\033[32m%-15s\033[0m | %-30s\n" "start" "启动caddy和trojan-go" &&
+printf "\033[32m%-15s\033[0m | %-30s\n" "stop" "停止caddy和trojan-go" &&
+printf "\033[32m%-15s\033[0m | %-30s\n" "tlog" "查看trojan-go运行日志" &&
+printf "\033[32m%-15s\033[0m | %-30s\n" "clog" "查看caddy运行日志" &&
+printf "\033[32m%-15s\033[0m | %-30s\n" "caddy start" "运行caddy" &&
+printf "\033[32m%-15s\033[0m | %-30s\n" "caddy stop" "停止caddy" &&
+printf "\033[32m%-15s\033[0m | %-30s\n" "caddy reload" "重启caddy" &&
+printf "\033[32m%-15s\033[0m | %-30s\n" "tstart" "运行trojan-go" &&
+printf "\033[32m%-15s\033[0m | %-30s\n" "tstop" "停止trojan-go" &&
+printf "\033[32m%-15s\033[0m | %-30s\n" "trestart" "重启trojan-go" &&
+printf "\033[32m%-15s\033[0m | %-30s\n" "schema" "获取URI连接地址" &&
+printf "\n" &&
+printf "The built-in command needs to take effect immediately in this session. Please execute: \033[32msource ~/.bashrc\033[0m\n\n" &&
+printf "\033[32m安装完成！请确保域名已解析到本服务器\033[0m\n"
 
 
 
