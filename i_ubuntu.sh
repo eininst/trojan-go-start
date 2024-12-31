@@ -164,7 +164,7 @@ echo "开启 BBR 拥塞控制算法..."
 # 检查内核版本
 kernel_version=$(uname -r | cut -d'.' -f1-2)
 if [[ $(echo "$kernel_version >= 4.15" | bc) -ne 1 ]]; then
-  echo "当前内核版本为 $kernel_version，不支持 BBR（需要内核版本 >= 4.9）。请先升级内核！"
+  echo "当前内核版本为 $kernel_version，不支持 BBR（需要内核版本 >= 4.15）。请先升级内核！"
 else
 
 # 修改 sysctl 配置
