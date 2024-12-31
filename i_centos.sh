@@ -30,7 +30,7 @@ PORT=${PORT:-12345}
 
 # 更新系统并安装必要工具
 echo "更新系统并安装必要工具..."
-#dnf update -y
+yum update -y
 yum install wget curl unzip tar socat yum-utils make -y
 
 # 创建 Trojan-Go 工作目录

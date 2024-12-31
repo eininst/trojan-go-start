@@ -29,7 +29,7 @@ PORT=${PORT:-12345}
 
 # 更新系统并安装必要工具 (Ubuntu)
 echo "更新系统并安装必要工具..."
-#apt-get update -y
+apt-get update -y
 apt-get install -y wget curl unzip tar socat make
 
 # 创建 Trojan-Go 工作目录
