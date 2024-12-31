@@ -211,6 +211,6 @@ printf "\033[32m%-15s\033[0m | %-30s\n" "tstart" "运行trojan-go" &&
 printf "\033[32m%-15s\033[0m | %-30s\n" "tstop" "停止trojan-go" &&
 printf "\033[32m%-15s\033[0m | %-30s\n" "trestart" "重启trojan-go" &&
 printf "\033[32m%-15s\033[0m | %-30s\n" "schema" "获取URI连接地址" &&
-printf "\033[32m%-15s\033[0m | %-30s\n" "tcp" "查看TCP拥塞控制算法(默认BBR)" &&
+printf "\033[32m%-15s\033[0m | %-30s\n" "tcp" "查看TCP拥塞控制算法" &&
 printf "\n" &&
 printf "安装完成！请确保域名已解析到本服务器\n"
