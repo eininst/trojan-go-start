@@ -45,7 +45,7 @@ wget -q -O trojan-go.zip "https://github.com/p4gefau1t/trojan-go/releases/downlo
 # 解压文件并设置权限
 unzip -o trojan-go.zip && rm -f trojan-go.zip
 chmod +x trojan-go
-cp -f trojan-go ${current_dir}
+\cp -f trojan-go ${current_dir}
 
 cd ${current_dir}
 
@@ -147,7 +147,7 @@ echo "alias tstart='systemctl start trojan-go'" >> ~/.bashrc
 echo "alias trestart='systemctl restart trojan-go'" >> ~/.bashrc
 echo "alias tstop='systemctl stop trojan-go'" >> ~/.bashrc
 echo "alias schema='printf \"trojan://${PASSWORD}@${MY_DOMAIN}:${PORT}#${MY_DOMAIN}\n\"'" >> ~/.bashrc
-echo "alias tcp='sysctl net.ipv4.tcp_congestion_control | awk \'{print $3}\''" >> ~/.bashrc
+echo "alias tcp='sysctl net.ipv4.tcp_congestion_control | awk \"{print $3}\"'" >> ~/.bashrc
 
 echo "export MY_DOMAIN=$MY_DOMAIN" >> ~/.bashrc
 echo "export MY_EMAIL=$MY_EMAIL" >> ~/.bashrc
