@@ -2,6 +2,28 @@
 ## 简介
 `trojan-go-start` 是一个用于快速部署和配置 `trojan-go` 的脚本工具。`trojan-go` 是基于 Go 语言开发的 Trojan 协议实现，旨在提供高性能、安全的网络代理服务，广泛用于科学上网和隐私保护。
 
+
+## 安装
+
+```shell
+bash <(curl -Ls https://raw.githubusercontent.com/eininst/trojan-go-start/main/install.sh)
+```
+
+## Cmd
+| 命令        | 说明              |
+|-------------|-------------------|
+| start       | 启动 caddy 和 trojan-go |
+| stop        | 停止 caddy 和 trojan-go |
+| tlog        | 查看 trojan-go 运行日志 |
+| clog        | 查看 caddy 运行日志 |
+| tstart      | 运行 trojan-go    |
+| tstop       | 停止 trojan-go    |
+| trestart    | 重启 trojan-go    |
+| caddy start | 运行 caddy        |
+| caddy stop  | 停止 caddy        |
+| caddy reload| 重启 caddy        |
+
+
 ### 特性
 - **快速安装**：一键安装 `trojan-go`，简化部署过程。
 - **自动配置**：自动生成和配置必要的配置文件。
@@ -28,11 +50,7 @@
 4. **GFW主动检测**：
    Trojan可以正确识别非Trojan协议的流量。与Shadowsocks等代理不同的是，此时Trojan不会断开连接，而是将这个连接代理到一个正常的Web服务器。在GFW看来，该服务器的行为和一个普通的HTTPS网站行为完全相同，无法判断是否是一个Trojan代理节点, 配置(`fallback_addr`,`fallback_port`)
 
-## 安装
 
-```shell
-bash <(curl -Ls https://raw.githubusercontent.com/eininst/trojan-go-start/main/install.sh)
-```
 
 ## config.json
 
@@ -67,19 +85,6 @@ websocket选项
 你只应该在需要利用CDN进行中转，或利用nginx,caddy等服务器根据路径分发的情况下，使用websocket
 ```
 
-## Cmd
-| 命令        | 说明              |
-|-------------|-------------------|
-| start       | 启动 caddy 和 trojan-go |
-| stop        | 停止 caddy 和 trojan-go |
-| tlog        | 查看 trojan-go 运行日志 |
-| clog        | 查看 caddy 运行日志 |
-| tstart      | 运行 trojan-go    |
-| tstop       | 停止 trojan-go    |
-| trestart    | 重启 trojan-go    |
-| caddy start | 运行 caddy        |
-| caddy stop  | 停止 caddy        |
-| caddy reload| 重启 caddy        |
 
 
 ### Server
