@@ -10,7 +10,7 @@ current_dir=$(pwd)
 
 # 请输入域名
 while true; do
-    read -p "请输入域名：" MY_DOMAIN
+    read -p "$(echo -e "\033[36m请输入域名：\033[0m")" MY_DOMAIN
     if [ -z "$MY_DOMAIN" ]; then
         echo "域名不能为空，请重新输入！"
     else
@@ -19,13 +19,13 @@ while true; do
 done
 
 
-read -p "请输入邮箱（默认值为 example@gmail.com）：" MY_EMAIL
+read -p "$(echo -e "\033[36m请输入邮箱（默认值为 example@gmail.com）：\033[0m")" MY_EMAIL
 MY_EMAIL=${MY_EMAIL:-example@gmail.com}
 
-read -p "请输入密码（默认值为 admin123）：" PASSWORD
+read -p "$(echo -e "\033[36m请输入密码（默认值为 admin123）：\033[0m")" PASSWORD
 PASSWORD=${PASSWORD:-admin123}
 
-read -p "请输入端口（默认值为 12345）：" PORT
+read -p "$(echo -e "\033[36m请输入端口（默认值为 12345）：\033[0m")" PORT
 PORT=${PORT:-12345}
 
 
