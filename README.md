@@ -58,7 +58,7 @@ source <(curl -Ls https://raw.githubusercontent.com/eininst/trojan-go-start/main
    在多种情况下，Trojan-Go 可以对抗 GFW 的封锁。它的抗封锁效果通常比 Shadowsocks 和 V2Ray 更强，因为其流量更难被区分和检测。对于 GFW 的封锁，Trojan-Go 可以通过流量特征、加密方式、证书伪装等手段增强抗干扰性。
 
 4. **GFW主动检测**：
-   Trojan可以正确识别非Trojan协议的流量。与Shadowsocks等代理不同的是，此时Trojan不会断开连接，而是将这个连接代理到一个正常的Web服务器。在GFW看来，该服务器的行为和一个普通的HTTPS网站行为完全相同，无法判断是否是一个Trojan代理节点, 配置(`fallback_addr`,`fallback_port`)
+   Trojan可以正确识别非Trojan协议的流量。与Shadowsocks等代理不同的是，此时Trojan不会断开连接，而是将这个连接代理到一个正常的Web服务器。在GFW看来，该服务器的行为和一个普通的HTTPS网站行为完全相同，无法判断是否是一个Trojan代理节点, 脚本已经自动配置(`fallback_addr`,`fallback_port`)
 
 
 ## websocket选项
