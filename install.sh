@@ -167,11 +167,27 @@ echo "export MY_EMAIL=$MY_EMAIL" >> ~/.bashrc
 echo "export SSL_CERT=${current_dir}/fullchain.pem" >> ~/.bashrc
 echo "export SSL_KEY=${current_dir}/privkey.pem" >> ~/.bashrc
 
+echo 'help=\"printf "\033[32m %-5s \033[0m|  %-10s\n" "start" "启动caddy和trojan-go" &&
+             printf "\033[32m %-5s \033[0m|  %-10s\n" "stop" "停止caddy和trojan-go" &&
+             printf "\033[32m %-5s \033[0m|  %-10s\n" "tlog" "查看trojan-go运行日志" &&
+             printf "\033[32m %-5s \033[0m|  %-10s\n" "clog" "查看caddy运行日志" &&
+             printf "\033[32m %-5s \033[0m|  %-10s\n" "caddy start" "运行caddy " &&
+             printf "\033[32m %-5s \033[0m|  %-10s\n" "caddy stop" "停止caddy" &&
+             printf "\033[32m %-5s \033[0m|  %-10s\n" "caddy reload" "重启caddy" &&
+             printf "\033[32m %-5s \033[0m|  %-10s\n" "tstart" "运行trojan-go" &&
+             printf "\033[32m %-5s \033[0m|  %-10s\n" "tstop" "停止trojan-go" &&
+             printf "\033[32m %-5s \033[0m|  %-10s\n" "trestart" "重启trojan-go"\"' >> ~/.bashrc
 
+
+source ~/.bashrc
 bash -i -c "source ~/.bashrc"
 
 
 echo "安装完成！请确保域名已解析到本服务器"
 
+help
 
-echo "The built-in command needs to take effect immediately in this session. Please execute: source ~/.bashrc"
+echo "The built-in command needs to take effect immediately in this session. Please execute: \033[32msource ~/.bashrc\033[0m"
+
+
+
