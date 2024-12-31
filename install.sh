@@ -18,20 +18,12 @@ while true; do
     fi
 done
 
-# 请输入邮箱
-while true; do
-    read -p "请输入邮箱：" MY_EMAIL
-    if [ -z "$MY_EMAIL" ]; then
-        echo "邮箱不能为空，请重新输入！"
-    else
-        break  # 如果输入有效，跳出循环
-    fi
-done
 
+read -p "请输入邮箱（默认值为 example@gmail.com）：" MY_EMAIL
+MY_EMAIL=${MY_EMAIL:-example@gmail.com}
 
 read -p "请输入密码（默认值为 admin123）：" PASSWORD
 PASSWORD=${PASSWORD:-admin123}
-
 
 read -p "请输入端口（默认值为 12345）：" PORT
 PORT=${PORT:-12345}
@@ -66,6 +58,7 @@ After=network.target
 [Service]
 Type=simple
 ExecStart=${current_dir}/trojan-go
+WorkingDirectory=${current_dir}
 Restart=on-failure
 
 [Install]
@@ -179,3 +172,6 @@ bash -i -c "source ~/.bashrc"
 
 
 echo "安装完成！请确保域名已解析到本服务器"
+
+
+echo "The built-in command needs to take effect immediately in this session. Please execute: source ~/.bashrc"
