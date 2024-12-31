@@ -172,5 +172,4 @@ printf "\033[32m%-15s\033[0m | %-30s\n" "tstop" "停止trojan-go" &&
 printf "\033[32m%-15s\033[0m | %-30s\n" "trestart" "重启trojan-go" &&
 printf "\033[32m%-15s\033[0m | %-30s\n" "schema" "获取URI连接地址" &&
 printf "\n" &&
-printf "The built-in command needs to take effect immediately in this session. Please execute: \033[32msource ~/.bashrc\033[0m\n\n" &&
-printf "\033[32m安装完成！请确保域名已解析到本服务器\033[0m\n"
+printf "安装完成！请确保域名已解析到本服务器\n"
