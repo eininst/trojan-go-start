@@ -90,6 +90,14 @@ source <(curl -Ls https://raw.githubusercontent.com/eininst/trojan-go-start/main
 [//]: # (Raksmart)
 [//]: # (https://help.mints7.cc)
 
+
+## 服务器购买
+- https://www.raksmart.com
+- https://cp.estnoc.ee
+
+## 域名购买
+- https://www.godaddy.com
+
 ## License
 
 *MIT*
