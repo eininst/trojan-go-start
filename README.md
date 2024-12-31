@@ -5,15 +5,16 @@
 
 ## 安装
 
+### Ubuntu
+```shell
+source <(curl -Ls https://raw.githubusercontent.com/eininst/trojan-go-start/main/i_ubuntu.sh)
+```
+
 ### Centos
 ```shell
 source <(curl -Ls https://raw.githubusercontent.com/eininst/trojan-go-start/main/i_centos.sh)
 ```
 
-### Ubuntu
-```shell
-source <(curl -Ls https://raw.githubusercontent.com/eininst/trojan-go-start/main/i_ubuntu.sh)
-```
 
 ## Cmd
 | 命令           | 说明                   |
