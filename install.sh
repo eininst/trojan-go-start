@@ -176,16 +176,16 @@ bash -i -c "source ~/.bashrc"
 echo "安装完成！请确保域名已解析到本服务器"
 
 
-printf "\033[32m %-5s \033[0m|  %-10s\n" "start" "启动caddy和trojan-go" &&
-printf "\033[32m %-5s \033[0m|  %-10s\n" "stop" "停止caddy和trojan-go" &&
-printf "\033[32m %-5s \033[0m|  %-10s\n" "tlog" "查看trojan-go运行日志" &&
-printf "\033[32m %-5s \033[0m|  %-10s\n" "clog" "查看caddy运行日志" &&
-printf "\033[32m %-5s \033[0m|  %-10s\n" "caddy start" "运行caddy " &&
-printf "\033[32m %-5s \033[0m|  %-10s\n" "caddy stop" "停止caddy" &&
-printf "\033[32m %-5s \033[0m|  %-10s\n" "caddy reload" "重启caddy" &&
-printf "\033[32m %-5s \033[0m|  %-10s\n" "tstart" "运行trojan-go" &&
-printf "\033[32m %-5s \033[0m|  %-10s\n" "tstop" "停止trojan-go" &&
-printf "\033[32m %-5s \033[0m|  %-10s\n" "trestart" "重启trojan-go"
+printf "\033[32m%-5s \033[0m|  %-10s\n" "start" "启动caddy和trojan-go" &&
+printf "\033[32m%-5s \033[0m|  %-10s\n" "stop" "停止caddy和trojan-go" &&
+printf "\033[32m%-5s \033[0m|  %-10s\n" "tlog" "查看trojan-go运行日志" &&
+printf "\033[32m%-5s \033[0m|  %-10s\n" "clog" "查看caddy运行日志" &&
+printf "\033[32m%-5s \033[0m|  %-10s\n" "caddy start" "运行caddy " &&
+printf "\033[32m%-5s \033[0m|  %-10s\n" "caddy stop" "停止caddy" &&
+printf "\033[32m%-5s \033[0m|  %-10s\n" "caddy reload" "重启caddy" &&
+printf "\033[32m%-5s \033[0m|  %-10s\n" "tstart" "运行trojan-go" &&
+printf "\033[32m%-5s \033[0m|  %-10s\n" "tstop" "停止trojan-go" &&
+printf "\033[32m%-5s \033[0m|  %-10s\n" "trestart" "重启trojan-go"
 
 
 printf "The built-in command needs to take effect immediately in this session. Please execute: \033[32msource ~/.bashrc\033[0m\n"
