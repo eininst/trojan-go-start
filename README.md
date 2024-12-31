@@ -67,13 +67,6 @@ source <(curl -Ls https://raw.githubusercontent.com/eininst/trojan-go-start/main
 
 
 ## BBR加速
-
-| CentOS 版本        | 默认内核版本          | 是否支持 BBR |
-|--------------------|-----------------------|--------------|
-| CentOS 7.x         | 3.10.x               | 不支持       |
-| CentOS 8.x         | 4.18.x               | 支持         |
-| CentOS Stream 9    | 5.x（如 5.14.x）     | 支持         |
-
 | Ubuntu 版本   | 默认内核版本 | 是否支持 BBR            |
 |---------------|--------------|-------------------------|
 | Ubuntu 14.04  | 3.13.x       | 不支持                 |
@@ -82,6 +75,14 @@ source <(curl -Ls https://raw.githubusercontent.com/eininst/trojan-go-start/main
 | Ubuntu 20.04  | 5.4.x        | 支持                   |
 | Ubuntu 22.04  | 5.15.x       | 支持                   |
 | Ubuntu 23.04+ | 6.x          | 支持                   |
+
+| CentOS 版本        | 默认内核版本          | 是否支持 BBR |
+|--------------------|-----------------------|--------------|
+| CentOS 7.x         | 3.10.x               | 不支持       |
+| CentOS 8.x         | 4.18.x               | 支持         |
+| CentOS Stream 9    | 5.x（如 5.14.x）     | 支持         |
+
+
 
 ## Client
 > See [Releases](https://github.com/eininst/trojan-go-start/releases)
