@@ -78,7 +78,7 @@ cat > ${current_dir}/config.json << EOF
   "ssl": {
     "cert": "${current_dir}/fullchain.pem",
     "key": "${current_dir}/privkey.pem",
-    "sni": "",
+    "sni": "${MY_DOMAIN}",
     "fallback_port": 443,
     "fallback_addr": "127.0.0.1"
   },
