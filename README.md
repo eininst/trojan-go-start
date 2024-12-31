@@ -30,22 +30,11 @@
 
 ## 安装
 
-```bash
-make install host=yourdomain.com
-```
-`or`
-
-```bash
-curl -sSL https://raw.githubusercontent.com/eininst/trojan-go-start/main/install.sh | sh -s -- host email
+```shell
+bash <(curl -Ls https://raw.githubusercontent.com/eininst/trojan-go-start/main/install.sh)
 ```
 
-```bash
-source ~/.bashrc
-```
-
-## config
-
-`configs` -> yourdomain.com.json
+## config.json
 
 ```json
 {
@@ -81,8 +70,14 @@ websocket选项
 ```
 
 ## Run
-> make start
+```shell
+start
+```
 
+## Stop
+```shell
+stop
+```
 
 ## More
 > See [Makefile](/Makefile)

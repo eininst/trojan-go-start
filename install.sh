@@ -153,21 +153,21 @@ curl https://get.acme.sh | sh
 crontab -l
 
 
-echo "alias start=caddy start && systemctl start trojan-go" >> ~/.bashrc
+echo "alias start='caddy start && systemctl start trojan-go'" >> ~/.bashrc
 
-echo "alias stop=systemctl stop trojan-go && caddy stop" >> ~/.bashrc
+echo "alias stop='systemctl stop trojan-go && caddy stop'" >> ~/.bashrc
 
-echo "alias tlog=journalctl -u trojan-go -f" >> ~/.bashrc
+echo "alias tlog='journalctl -u trojan-go -f'" >> ~/.bashrc
 
-echo "alias clog=journalctl -u caddy -f" >> ~/.bashrc
+echo "alias clog='journalctl -u caddy -f'" >> ~/.bashrc
 
-echo "alias trun=${current_dir}/trojan-go" >> ~/.bashrc
+echo "alias trun='${current_dir}/trojan-go'" >> ~/.bashrc
 
-echo "alias tstart=systemctl start trojan-go" >> ~/.bashrc
+echo "alias tstart='systemctl start trojan-go'" >> ~/.bashrc
 
-echo "alias trestart=systemctl restart trojan-go" >> ~/.bashrc
+echo "alias trestart='systemctl restart trojan-go'" >> ~/.bashrc
 
-echo "alias tstop=systemctl stop trojan-go" >> ~/.bashrc
+echo "alias tstop='systemctl stop trojan-go'" >> ~/.bashrc
 
 echo "export MY_DOMAIN=$MY_DOMAIN" >> ~/.bashrc
 echo "export MY_EMAIL=$MY_EMAIL" >> ~/.bashrc
