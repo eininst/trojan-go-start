@@ -83,10 +83,6 @@ cat > ${current_dir}/config.json << EOF
     "sni": "${MY_DOMAIN}",
     "fallback_port": 443,
     "fallback_addr": "127.0.0.1"
-  },
-  "websocket": {
-    "enabled": true,
-    "path": "/ws"
   }
 }
 EOF
