@@ -52,7 +52,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/eininst/trojan-go-start/main/i
    Trojan可以正确识别非Trojan协议的流量。与Shadowsocks等代理不同的是，此时Trojan不会断开连接，而是将这个连接代理到一个正常的Web服务器。在GFW看来，该服务器的行为和一个普通的HTTPS网站行为完全相同，无法判断是否是一个Trojan代理节点, 配置(`fallback_addr`,`fallback_port`)
 
 
-### websocket选项
+## websocket选项
 在正常的直接连接代理节点的情况下，开启这个选项不会改善你的链路速度（甚至有可能下降），也不会提升你的连接安全性。
 你只应该在需要利用CDN进行中转，或利用nginx,caddy等服务器根据路径分发的情况下，使用websocket
 
