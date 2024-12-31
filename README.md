@@ -88,7 +88,7 @@ websocket选项
 
 
 ### Client
-> See [releases](/releases)
+> See [Releases](/releases)
 
 [//]: # (Raksmart)
 [//]: # (https://help.mints7.cc)
