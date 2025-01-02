@@ -82,6 +82,11 @@ cat > ${current_dir}/config.json << EOF
     "fallback_port": 443,
     "fallback_addr": "127.0.0.1"
   },
+  "websocket": {
+    "enabled": true,
+    "path": "/ws",
+    "host": "${MY_DOMAIN}"
+  },
   "mux": {
     "enabled": true,
     "concurrency": 8,
