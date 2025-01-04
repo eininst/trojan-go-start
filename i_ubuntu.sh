@@ -121,6 +121,12 @@ rm -rf /etc/trojan-go/caddy.tar.gz
 
 echo "创建 Caddyfile 配置文件..."
 cat > "${current_dir}/Caddyfile" << EOF
+{
+    log {
+        output file ${current_dir}/caddy.log
+    }
+}
+
 :80 {
     respond "Hello World" 200
 }
@@ -157,7 +163,7 @@ crontab -l
 echo "alias start='caddy start && sleep 1 && systemctl start trojan-go'" >> ~/.bashrc
 echo "alias stop='systemctl stop trojan-go && caddy stop'" >> ~/.bashrc
 echo "alias tlog='journalctl -u trojan-go -f'" >> ~/.bashrc
-echo "alias clog='journalctl -u caddy -f'" >> ~/.bashrc
+echo "alias clog='tail -220f ${current_dir}/caddy.log'" >> ~/.bashrc
 echo "alias trun='${current_dir}/trojan-go'" >> ~/.bashrc
 echo "alias tstart='systemctl start trojan-go'" >> ~/.bashrc
 echo "alias trestart='systemctl restart trojan-go'" >> ~/.bashrc
