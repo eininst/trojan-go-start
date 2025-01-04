@@ -83,9 +83,14 @@ cat > "${current_dir}/config.json" << EOF
     "fallback_addr": "127.0.0.1"
   },
   "websocket": {
-    "enabled": true,
+    "enabled": false,
     "path": "/ws",
     "host": "${MY_DOMAIN}"
+  },
+  "forward_proxy": {
+      "enabled": false,
+      "proxy_addr": "xxxx",
+      "proxy_port": 1080
   },
   "mux": {
     "enabled": true,
@@ -98,7 +103,7 @@ EOF
 # 安装 Caddy
 echo "安装 Caddy..."
 # 下载最新版本 Caddy
-curl -o caddy.tar.gz -L "https://github.com/caddyserver/caddy/releases/download/v2.7.4/caddy_2.7.4_linux_amd64.tar.gz"
+curl -o caddy.tar.gz -L "https://github.com/caddyserver/caddy/releases/download/v2.9.0/caddy_2.9.0_linux_amd64.tar.gz"
 
 # 解压文件
 tar -zxvf caddy.tar.gz
