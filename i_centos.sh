@@ -155,7 +155,7 @@ curl https://get.acme.sh | sh
 
 crontab -l
 
-echo "alias start='caddy start && systemctl start trojan-go'" >> ~/.bashrc
+echo "alias start='caddy start && sleep 1 && systemctl start trojan-go'" >> ~/.bashrc
 echo "alias stop='systemctl stop trojan-go && caddy stop'" >> ~/.bashrc
 echo "alias tlog='journalctl -u trojan-go -f'" >> ~/.bashrc
 echo "alias clog='journalctl -u caddy -f'" >> ~/.bashrc

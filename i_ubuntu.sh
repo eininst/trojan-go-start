@@ -154,7 +154,7 @@ curl https://get.acme.sh | sh
 # 仅展示已有的 crontab，若需要添加自动续期，可在此处添加
 crontab -l
 
-echo "alias start='caddy start && systemctl start trojan-go'" >> ~/.bashrc
+echo "alias start='caddy start && sleep 1 && systemctl start trojan-go'" >> ~/.bashrc
 echo "alias stop='systemctl stop trojan-go && caddy stop'" >> ~/.bashrc
 echo "alias tlog='journalctl -u trojan-go -f'" >> ~/.bashrc
 echo "alias clog='journalctl -u caddy -f'" >> ~/.bashrc
