@@ -124,6 +124,7 @@ cat > "${current_dir}/Caddyfile" << EOF
 {
     log {
         output file ${current_dir}/caddy.log
+        format common
     }
 }
 
