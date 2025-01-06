@@ -72,6 +72,9 @@ echo "alias run='${current_dir}/trojan-go ${current_dir}/client.json'" >> ~/.bas
 echo "alias restart='systemctl restart trojan-go'" >> ~/.bashrc
 
 echo "alias proxy='export https_proxy=http://127.0.0.1:${PORT} http_proxy=http://127.0.0.1:${PORT} all_proxy=socks5://127.0.0.1:${PORT}'" >> ~/.bashrc
+echo "alias show_proxy='echo $https_proxy && echo $http_proxy && echo $ALL_PROXY'"  >> ~/.bashrc
+echo "alias noproxy='unset https_proxy && unset http_proxy && unset ALL_PROXY'" >> ~/.bashrc
+
 
 source ~/.bashrc
 
