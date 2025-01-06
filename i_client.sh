@@ -71,7 +71,7 @@ echo "alias log='journalctl -u trojan-go -f'" >> ~/.bashrc
 echo "alias run='${current_dir}/trojan-go ${current_dir}/client.json'" >> ~/.bashrc
 echo "alias restart='systemctl restart trojan-go'" >> ~/.bashrc
 
-echo "alias proxy='export https_proxy=http://127.0.0.1:${PORT} http_proxy=http://127.0.0.1:${PORT} all_proxy=socks5://127.0.0.1:${PORT}'" >> ~/.bashrc
+echo "alias proxy='export https_proxy=http://127.0.0.1:${PORT} && export http_proxy=http://127.0.0.1:${PORT} && export all_proxy=socks5://127.0.0.1:${PORT}'" >> ~/.bashrc
 echo "alias show_proxy='echo $https_proxy && echo $http_proxy && echo $ALL_PROXY'"  >> ~/.bashrc
 echo "alias noproxy='unset https_proxy && unset http_proxy && unset ALL_PROXY'" >> ~/.bashrc
 
