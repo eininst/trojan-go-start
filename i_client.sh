@@ -32,7 +32,7 @@ wget -q -O trojan-go https://fastworks.oss-rg-china-mainland.aliyuncs.com/trojan
 chmod +x trojan-go
 
 echo "创建 Trojan-Go 配置文件..."
-cat > ${current_dir}/config.json << EOF
+cat > ${current_dir}/client.json << EOF
 {
   "run_type": "client",
   "local_addr": "127.0.0.1",
@@ -53,7 +53,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=${current_dir}/trojan-go -config ${current_dir}/config.json
+ExecStart=${current_dir}/trojan-go -config ${current_dir}/client.json
 WorkingDirectory=${current_dir}
 Restart=on-failure
 
@@ -65,11 +65,11 @@ systemctl daemon-reload
 systemctl enable trojan-go
 
 
-echo "alias start='systemctl start trojan-go'" >> ~/.bashrc
-echo "alias stop='systemctl stop trojan-go'" >> ~/.bashrc
-echo "alias log='journalctl -u trojan-go -f'" >> ~/.bashrc
-echo "alias run='${current_dir}/trojan-go ${current_dir}/client.json'" >> ~/.bashrc
-echo "alias restart='systemctl restart trojan-go'" >> ~/.bashrc
+echo "alias client_start='systemctl start trojan-go'" >> ~/.bashrc
+echo "alias client_stop='systemctl stop trojan-go'" >> ~/.bashrc
+echo "alias client_log='journalctl -u trojan-go -f'" >> ~/.bashrc
+echo "alias client_run='${current_dir}/trojan-go ${current_dir}/client.json'" >> ~/.bashrc
+echo "alias client_restart='systemctl restart trojan-go'" >> ~/.bashrc
 
 echo "alias proxy='export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890'" >> ~/.bashrc
 echo 'alias show_proxy="echo $https_proxy && echo $http_proxy && echo $all_proxy"'  >> ~/.bashrc
