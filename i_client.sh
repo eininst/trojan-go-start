@@ -36,7 +36,7 @@ cat > ${current_dir}/config.json << EOF
 {
   "run_type": "client",
   "local_addr": "127.0.0.1",
-  "local_port": 7090,
+  "local_port": 7890,
   "remote_addr": "${MY_DOMAIN}",
   "remote_port": ${PORT},
   "password": ["${PASSWORD}"]
@@ -71,7 +71,7 @@ echo "alias log='journalctl -u trojan-go -f'" >> ~/.bashrc
 echo "alias run='${current_dir}/trojan-go ${current_dir}/client.json'" >> ~/.bashrc
 echo "alias restart='systemctl restart trojan-go'" >> ~/.bashrc
 
-echo "alias proxy='export https_proxy=http://127.0.0.1:7090 http_proxy=http://127.0.0.1:7090 all_proxy=socks5://127.0.0.1:7090'" >> ~/.bashrc
+echo "alias proxy='export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890'" >> ~/.bashrc
 echo 'alias show_proxy="echo $https_proxy && echo $http_proxy && echo $all_proxy"'  >> ~/.bashrc
 echo "alias noproxy='unset https_proxy && unset http_proxy && unset ALL_PROXY'" >> ~/.bashrc
 echo "alias test='curl https://www.google.com/status'" >> ~/.bashrc
