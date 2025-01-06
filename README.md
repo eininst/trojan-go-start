@@ -87,13 +87,30 @@ source <(curl -Ls https://raw.githubusercontent.com/eininst/trojan-go-start/main
 ## Client
 > See [Releases](https://github.com/eininst/trojan-go-start/releases)
 
+###
+```shell
+source <(curl -Ls https://raw.githubusercontent.com/eininst/trojan-go-start/main/i_client.sh)
+```
+`or` 
+```shell
+source <(curl -Ls https://fastworks.oss-rg-china-mainland.aliyuncs.com/i_client.sh)
+```
+
+
 [//]: # (Raksmart)
 [//]: # (https://help.mints7.cc)
 
 
+https://ailab-cvc.github.io/VideoGen-Eval/
+
 ## 服务器购买
+- https://www.onetechcloud.com
 - https://www.raksmart.com
+- https://www.ygcloud.com
+- https://www.caidouy.net
 - https://cp.estnoc.ee
+- https://www.akkocloud.com
+- https://www.dmit.io/
 
 ## 域名购买
 - https://www.godaddy.com
