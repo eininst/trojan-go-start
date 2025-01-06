@@ -105,12 +105,10 @@ source <(curl -Ls https://fastworks.oss-rg-china-mainland.aliyuncs.com/i_client.
 
 ## 服务器购买
 - https://www.onetechcloud.com
+- https://www.akkocloud.com
 - https://www.raksmart.com
 - https://www.ygcloud.com
-- https://www.caidouy.net
 - https://cp.estnoc.ee
-- https://www.akkocloud.com
-- https://www.dmit.io/
 
 ## 域名购买
 - https://cloudflare.com
