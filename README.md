@@ -101,7 +101,7 @@ source <(curl -Ls https://fastworks.oss-rg-china-mainland.aliyuncs.com/i_client.
 [//]: # (https://help.mints7.cc)
 
 
-https://ailab-cvc.github.io/VideoGen-Eval/
+[//]: # (https://ailab-cvc.github.io/VideoGen-Eval/)
 
 ## 服务器购买
 - https://www.onetechcloud.com
@@ -113,6 +113,7 @@ https://ailab-cvc.github.io/VideoGen-Eval/
 - https://www.dmit.io/
 
 ## 域名购买
+- https://cloudflare.com
 - https://www.godaddy.com
 
 ## WildCard 海外支付账户开通
