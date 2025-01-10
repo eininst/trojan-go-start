@@ -103,6 +103,7 @@ source <(curl -Ls https://fastworks.oss-rg-china-mainland.aliyuncs.com/i_client.
 
 [//]: # (https://ailab-cvc.github.io/VideoGen-Eval/)
 
+[//]: # ([//]: # &#40;https://elevenlabs.io/&#41; 配音)
 ## 服务器购买
 - https://www.onetechcloud.com
 - https://www.akkocloud.com
